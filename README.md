@@ -5,73 +5,97 @@
   <img src="https://img.shields.io/badge/GTA%20ONLINE-PUBLIC%20SESSIONS-00d4ff?style=for-the-badge&labelColor=0d1117" />
 </p>
 
-<h1 align="center">
-  ███████╗ █████╗ ██████╗  █████╗ ██████╗<br>
-  ██╔════╝██╔══██╗██╔══██╗██╔══██╗██╔══██╗<br>
-  ███████╗███████║██████╔╝███████║██████╔╝<br>
-  ╚════██║██╔══██║██╔══██╗██╔══██║██╔══██╗<br>
-  ███████║██║  ██║██║  ██║██║  ██║██████╔╝<br>
-  ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝<br>
-</h1>
-
-<h3 align="center">🔮 Kernel Manual Map Injector — Dual-Layer Signature Randomization</h3>
 <p align="center">
-  <b>Created by Koldo</b> &nbsp;|&nbsp; Discord: <b>@Koldo1</b><br>
-  <sub>Every build is unique. Every hash is different. Every session is undetected.</sub>
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=800&size=36&duration=3000&pause=1000&color=7B2FF7&center=true&vCenter=true&width=500&lines=S+A+R+A+B;The+Mirage;Kernel+Manual+Map;Undetected+%F0%9F%91%BB" alt="SARAB Typing Animation" />
+</p>
+
+<h3 align="center">
+  <code>
+    ╔═══════════════════════════════════════════════════════════╗<br>
+    ║&nbsp;&nbsp;&nbsp;░██████╗░█████╗░██████╗░░█████╗░██████╗░&nbsp;&nbsp;&nbsp;║<br>
+    ║&nbsp;&nbsp;&nbsp;██╔════╝██╔══██╗██╔══██╗██╔══██╗██╔══██╗&nbsp;&nbsp;&nbsp;║<br>
+    ║&nbsp;&nbsp;&nbsp;╚█████╗░███████║██████╔╝███████║██████╦╝&nbsp;&nbsp;&nbsp;║<br>
+    ║&nbsp;&nbsp;&nbsp;░╚═══██╗██╔══██║██╔══██╗██╔══██║██╔══██╗&nbsp;&nbsp;&nbsp;║<br>
+    ║&nbsp;&nbsp;&nbsp;██████╔╝██║&nbsp;&nbsp;██║██║&nbsp;&nbsp;██║██║&nbsp;&nbsp;██║██████╦╝&nbsp;&nbsp;&nbsp;║<br>
+    ║&nbsp;&nbsp;&nbsp;╚═════╝&nbsp;╚═╝&nbsp;&nbsp;╚═╝╚═╝&nbsp;&nbsp;╚═╝╚═╝&nbsp;&nbsp;╚═╝╚═════╝&nbsp;&nbsp;&nbsp;&nbsp;║<br>
+    ║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;║<br>
+    ║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ring-0 Kernel Injection &bull; Dual-Layer Spoofing&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;║<br>
+    ╚═══════════════════════════════════════════════════════════╝
+  </code>
+</h3>
+
+<p align="center">
+  <b>Created by Koldo</b> &nbsp;•&nbsp; Discord: <b>@Koldo1</b><br>
+  <sub>Every build is unique &nbsp;|&nbsp; Every hash is different &nbsp;|&nbsp; Every session is undetected</sub>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=flat&logo=cplusplus&logoColor=white" />
+  <img src="https://img.shields.io/badge/PowerShell-5391FE?style=flat&logo=powershell&logoColor=white" />
+  <img src="https://img.shields.io/badge/Windows%20Driver%20Kit-0078D4?style=flat&logo=windows&logoColor=white" />
+  <img src="https://img.shields.io/badge/x64-Kernel%20Mode-red?style=flat" />
 </p>
 
 ---
 
 ## 🔥 What is SARAB?
 
-**SARAB** (_"The Mirage" — السراب_) is a **ring-0 kernel manual map** DLL injection engine. Everything — PE parsing, relocations, import resolution, memory protection, and `DllMain` execution — happens **entirely in kernel mode**. The usermode component (`sarab.exe`) touches **zero injection APIs**. It only reads the DLL from disk and writes it to shared memory. The kernel driver does the rest.
+**SARAB** is a **ring-0 kernel manual map** DLL injection engine built from the ground up for stealth. The entire injection process — PE header parsing, section mapping, base relocations, import resolution, memory protection, and `DllMain` execution — happens **entirely inside the Windows kernel**. 
 
-> **Bottom line:** Anti-cheat sees nothing because there's nothing to see.
+The usermode component (`sarab.exe`) does only two things: reads the DLL file from disk and writes it to a shared memory section. That's it. **Zero injection APIs are ever called from usermode.** The kernel driver handles everything else invisibly.
 
-### ⚔️ SARAB vs. Everything Else
+> _You can't detect what doesn't exist._
+
+### ⚔️ SARAB vs. Standard Injectors
 
 | | **SARAB** | **Standard Injectors** |
-|:---:|:---:|:---:|
-| Injection API calls in usermode | **❌ Zero** | ✅ VirtualAllocEx, WriteProcessMemory, CreateRemoteThread |
-| Detection surface | **👻 Ghost** | 🎯 Flagged & logged |
-| Binary uniqueness per build | **✅ Automatic** (2-layer randomization) | ❌ Same hash every time |
-| Full kernel manual map | **✅ Complete** (all PE ops in ring 0) | ❌ Partial or none |
-| IPC method | **✅ SharedMemory** (no IOCTLs, no device objects) | ❌ IOCTLs / DeviceIoControl (flagged) |
+|:---|:---:|:---:|
+| Injection API calls from usermode | **❌ Zero** | ✅ VirtualAllocEx, WriteProcessMemory, CreateRemoteThread |
+| Detection surface | **👻 None** | 🎯 Flagged & logged |
+| Binary uniqueness per build | **✅ Fully automatic** | ❌ Same hash every time |
+| PE operations location | **Ring 0** (kernel) | Ring 3 (usermode) |
+| IPC method | **SharedMemory** (invisible) | IOCTLs / DeviceIoControl (flagged) |
 | GTA Online public sessions | **✅ Tested & working** | ⚠️ High detection risk |
 | Console UI | **🎨 Fusion RGB gradient** | Plain text |
 
 ---
 
-## ✨ Features at a Glance
+## ✨ Features
 
-| Feature | Description |
-|---------|-------------|
-| 🧠 **Full Kernel Manual Map** | PE parsing, section mapping, relocations, import resolution, entry point — all executed in ring 0 |
-| 🔒 **SharedMemory IPC** | No IOCTLs, no device objects — just a named kernel section. Invisible to API monitors |
-| 🎭 **2-Layer Signature Engine** | Source-level mutation (pre-build) + binary PE mutation (post-build) = unique fingerprint every single time |
-| 🎨 **Fusion RGB Gradient UI** | 24-bit TrueColor console with animated gradient banner, progress bars, and themed output |
-| 👻 **Ghost Mode** | Zero usermode injection APIs called — zero traces left behind |
-| ⚡ **Instant Injection** | Full manual map injection completes in milliseconds |
-| 🌐 **GTA Online Ready** | Tested and working in public GTA Online sessions |
-| 📦 **YimMenu Included** | Custom-built YimMenu DLL in `payload/` — works out of the box |
+| | Feature | Description |
+|:---:|:---|:---|
+| 🧠 | **Full Kernel Manual Map** | PE parsing, section mapping, relocations, import resolution, entry point — all in ring 0 |
+| 🔒 | **SharedMemory IPC** | No IOCTLs, no device objects — just a named kernel section. Invisible to API monitors |
+| 🎭 | **2-Layer Signature Engine** | Source-level mutation + binary PE mutation = unique fingerprint every single build |
+| 🎨 | **Fusion RGB Gradient UI** | 24-bit TrueColor console with animated gradient banner and progress bars |
+| 👻 | **Ghost Mode** | Zero usermode injection APIs — zero traces |
+| ⚡ | **Instant Injection** | Full manual map completes in milliseconds |
+| 🌐 | **GTA Online Ready** | Tested and working in public online sessions |
+| 📦 | **YimMenu Included** | Custom-built DLL in `payload/` — works out of the box |
 
 ---
 
-## 🔴 CRITICAL — Use ONLY the Included YimMenu DLL
+## 🔴 CRITICAL — Only Use the Included YimMenu DLL
 
-> **⚠️ THE NORMAL / STANDARD YimMenu DLL WILL NOT WORK WITH SARAB.**
->
-> SARAB uses **kernel-mode manual mapping**, which is a fundamentally different injection method than standard injectors. The normal YimMenu DLL downloaded from the official YimMenu GitHub/nightly releases is built and tested for standard usermode injection (LoadLibrary, manual map from usermode, etc.).
->
-> **Only the `YimMenu.dll` included in the `payload/` folder of this release is built to work with SARAB's kernel injection engine.**
->
-> Do **NOT** replace it with a random YimMenu download — it will crash or fail to inject.
+<table>
+<tr>
+<td>
 
-| DLL | Works with SARAB? | Why? |
-|-----|:-:|------|
-| `payload/YimMenu.dll` (included) | ✅ **YES** | Built & tested specifically for kernel manual map injection |
-| Normal YimMenu nightly DLL | ❌ **NO** | Not compatible with kernel-mode manual mapping |
-| Random DLLs from the internet | ❌ **NO** | Untested, likely incompatible, possibly malware |
+> **⛔ THE NORMAL / STANDARD YimMenu DLL WILL NOT WORK WITH SARAB**
+>
+> SARAB uses **kernel-mode manual mapping** — a fundamentally different injection method. The normal YimMenu DLL from the official GitHub releases is built for standard usermode injection (`LoadLibrary`, usermode manual map, etc.) and **will crash or fail** if used with SARAB.
+>
+> **Only use the `YimMenu.dll` included in the `payload/` folder.** It was specifically built and tested for SARAB's kernel injection engine.
+
+</td>
+</tr>
+</table>
+
+| DLL | Compatible? | Reason |
+|:---|:---:|:---|
+| **`payload/YimMenu.dll`** (included) | ✅ **Works** | Built & tested for kernel manual map injection |
+| Normal YimMenu nightly | ❌ **Crashes** | Designed for usermode injection — not compatible |
+| Random DLLs from internet | ❌ **Don't** | Untested, incompatible, potentially dangerous |
 
 ---
 
@@ -80,29 +104,29 @@
 ```
 SARAB/
 │
-├── 🔨 build_release.bat           ← Full 5-step build pipeline (compile + spoof)
-├── ⚡ quick_spoof.bat              ← One-click re-spoof without rebuilding
-├── 📖 README.md                    ← You are here
-├── 🚫 .gitignore                   ← Keeps compiled outputs out of git
+├── 🔨  build_release.bat            Full 5-step build pipeline
+├── ⚡  quick_spoof.bat               One-click binary re-spoof
+├── 📖  README.md                     Documentation
+├── 🚫  .gitignore                    Excludes compiled outputs
 │
-├── 📂 src/                         ← Full source code
-│   ├── usermode/
-│   │   └── sarab.cpp               ← Injector with Fusion gradient theme (580 lines)
+├── src/
 │   ├── driver/
-│   │   └── driver.cpp              ← Kernel manual map engine (1950 lines)
+│   │   └── driver.cpp               Kernel manual map engine          [1950 lines]
+│   ├── usermode/
+│   │   └── sarab.cpp                Injector + Fusion gradient UI     [580 lines]
 │   └── shared/
-│       └── protocol.h              ← Shared IPC protocol header
+│       └── protocol.h               IPC protocol header
 │
-├── 🛠️ tools/                       ← Signature randomization tools
-│   ├── signature_randomizer.ps1    ← Binary PE mutation engine (10 mutations, 381 lines)
-│   └── source_randomizer.ps1       ← Source-level identifier randomizer
+├── tools/
+│   ├── signature_randomizer.ps1     Binary PE mutation engine         [381 lines, 10 mutations]
+│   └── source_randomizer.ps1        Source-level randomizer
 │
-├── 📦 payload/                     ← DLL payloads
-│   └── YimMenu.dll                 ← ⚠️ USE ONLY THIS DLL (custom-built for kernel injection)
+├── payload/
+│   └── YimMenu.dll                  ⚠️ USE ONLY THIS (kernel-compatible)
 │
-└── 📤 output/                      ← Compiled binaries appear here after build
-    ├── driver.sys                   (generated — ~29.5 KB)
-    └── sarab.exe                    (generated — ~140 KB)
+└── output/                          ← Generated after build
+    ├── driver.sys                    ~29.5 KB
+    └── sarab.exe                    ~140 KB
 ```
 
 ---
@@ -113,374 +137,303 @@ SARAB/
 <tr>
 <td>
 
-> **🔴 EVERYTHING REQUIRES ADMINISTRATOR**
->
-> Building, loading the driver, and running the injector **ALL** require elevated privileges.
->
-> **Right-click → Run as administrator** on CMD / PowerShell / Terminal.
+### 🔴 ADMINISTRATOR REQUIRED FOR EVERYTHING
+
+Building, loading the driver, and running the injector **all** require elevated privileges.
+
+**Right-click your terminal → Run as administrator**
 
 </td>
 </tr>
 </table>
 
-| Requirement | Details | Install |
+| Requirement | Details | Get It |
 |:---|:---|:---|
 | **Windows 10/11 x64** | Target OS | — |
-| **Administrator** | Required for everything | Right-click → Run as administrator |
-| **Visual Studio 2022** | Community, Pro, or Enterprise — with **"Desktop development with C++"** | [Download](https://visualstudio.microsoft.com/downloads/) |
-| **Windows Driver Kit 10** | Kernel driver compilation | [Download WDK](https://learn.microsoft.com/en-us/windows-hardware/drivers/download-the-wdk) |
-| **PowerShell 7+ (pwsh)** | Source randomizer requires regex lookbehinds | [Install](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows) |
-| **kdmapper** | Maps driver.sys into kernel (vulnerable Intel driver exploit) | [GitHub](https://github.com/TheCruZ/kdmapper) |
+| **Administrator** | Everything needs elevation | Right-click → Run as admin |
+| **Visual Studio 2022** | With **"Desktop development with C++"** | [Download](https://visualstudio.microsoft.com/downloads/) |
+| **Windows Driver Kit 10** | Kernel compilation | [Download](https://learn.microsoft.com/en-us/windows-hardware/drivers/download-the-wdk) |
+| **PowerShell 7+ (pwsh)** | Regex lookbehind support | [Install](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows) |
+| **kdmapper** | Kernel driver loader | [GitHub](https://github.com/TheCruZ/kdmapper) |
 
 <details>
-<summary><b>📋 Detailed Installation Guide</b> (click to expand)</summary>
+<summary><b>📋 Detailed Installation Guide</b></summary>
 
 ### Visual Studio 2022 + WDK
 
-1. Download and install **Visual Studio 2022** (Community edition is free)
-2. In the VS Installer → Workloads → check **"Desktop development with C++"**
-3. Download and install the **Windows Driver Kit (WDK)** matching your Windows SDK version
-4. Verify: Open **"x64 Native Tools Command Prompt for VS 2022"** from Start Menu
+1. Install **Visual Studio 2022** (Community is free)
+2. In VS Installer → Workloads → check **"Desktop development with C++"**
+3. Install the **Windows Driver Kit (WDK)** matching your Windows SDK version
+4. Verify: Open **"x64 Native Tools Command Prompt for VS 2022"**
 
 ### PowerShell 7
 
 ```powershell
-# Option 1: Microsoft Store (easiest)
-# Search "PowerShell" in Microsoft Store → Install
-
-# Option 2: winget
-winget install --id Microsoft.PowerShell --source winget
-
-# Option 3: Direct download
-# https://github.com/PowerShell/PowerShell/releases
+# Easiest: Microsoft Store → search "PowerShell" → Install
+# Or: winget install --id Microsoft.PowerShell --source winget
 ```
 
-Verify: `pwsh --version` → should show `PowerShell 7.x.x`
+Verify: `pwsh --version` → `PowerShell 7.x.x`
 
 ### kdmapper
 
-1. Go to [kdmapper releases](https://github.com/TheCruZ/kdmapper/releases) or build from source
-2. Download `kdmapper.exe`
-3. Place it somewhere easy to access (e.g., same folder as SARAB's `output/`)
-
-> **What is kdmapper?** It exploits a vulnerable signed Intel driver (`iqvw64e.sys`) to load unsigned kernel drivers without needing test signing mode or boot configuration changes.
+1. [kdmapper releases](https://github.com/TheCruZ/kdmapper/releases) — download `kdmapper.exe`
+2. Place in the same folder as SARAB's `output/`
 
 </details>
 
 ---
 
-## 🚀 Usage — Step by Step
+## 🚀 Usage Guide
 
-### 📌 The Order Matters
+### 📌 Follow This Exact Order
 
 ```
-BUILD  →  MAP DRIVER  →  LAUNCH GAME  →  INJECT  →  PRESS INSERT
+  ① BUILD  →  ② MAP DRIVER  →  ③ LAUNCH GAME  →  ④ INJECT  →  ⑤ INSERT KEY
 ```
 
-Do **NOT** change this order. Each step depends on the previous one.
+Each step depends on the previous. **Do not change the order.**
 
 ---
 
-### 1️⃣ Build Your Unique Binaries
+### ① Build Your Unique Binaries
 
-> ⚠️ **Admin CMD / PowerShell required**
+> ⚠️ Admin terminal required
 
 ```batch
 cd SARAB
 build_release.bat
 ```
 
-The 5-step pipeline runs automatically:
+| Step | What Happens |
+|:---:|:---|
+| **1/5** | 🎭 Randomizes identifiers in source code |
+| **2/5** | 🔧 Compiles `driver.sys` with unique values |
+| **3/5** | 🔧 Compiles `sarab.exe` with matching values |
+| **4/5** | 🔄 Restores source to original |
+| **5/5** | 🎭 Applies 10 PE mutations to both binaries |
 
-| Step | What Happens | Why |
-|:---:|---|---|
-| **1/5** | 🎭 Source randomizer | Mutates shared memory names, magic values, pool tags in `protocol.h` |
-| **2/5** | 🔧 Compile `driver.sys` | Kernel driver built with YOUR unique randomized identifiers |
-| **3/5** | 🔧 Compile `sarab.exe` | Usermode injector built with matching identifiers |
-| **4/5** | 🔄 Restore source | `protocol.h` reverts to original (clean for git) |
-| **5/5** | 🎭 Binary spoofer | 10 PE mutations on both binaries |
+**Result:** `output/driver.sys` + `output/sarab.exe` with completely unique SHA256 hashes.
 
-**Result:** `output/driver.sys` + `output/sarab.exe` — completely unique to this build.
-
-> 💡 **Each time you run `build_release.bat`, both binaries get completely new SHA256 hashes.** No two builds are ever the same.
+> 💡 Every run = different machine code + different binary signatures. No two builds are ever the same.
 
 ---
 
-### 2️⃣ Map the Driver with kdmapper
+### ② Load the Driver with kdmapper
 
-> ⚠️ **Admin CMD required**
+> ⚠️ Admin CMD required
 
 ```batch
-kdmapper.exe "C:\path\to\SARAB\output\driver.sys"
+kdmapper.exe output\driver.sys
 ```
 
-**Expected output:**
-```
-[+] Device \\.\Nal found
-[+] Vulnerable driver loaded
-[+] Image base has been allocated at 0xFFFFF80712340000
-[+] Driver mapped successfully
-[+] Cleanup complete
-```
+**Look for:** `[+] Driver mapped successfully` → ✅ driver is live
 
-✅ `Driver mapped successfully` = the kernel driver is live and shared memory is created.
-
-> ⚠️ **Don't close this terminal. Don't reboot. The driver stays loaded until you reboot.**
+> ⚠️ Don't close this terminal. Don't reboot. Driver stays loaded until reboot.
 
 ---
 
-### 3️⃣ Launch GTA V
+### ③ Launch GTA V
 
-1. Open GTA V (Steam / Epic / Rockstar Launcher)
-2. Wait until you're **fully loaded** into Story Mode or an Online public session
-3. Game **MUST** be running before you inject
+Open GTA V → wait until **fully loaded** into Story Mode or Online public session.
 
 ---
 
-### 4️⃣ Inject the DLL
+### ④ Inject the DLL
 
-> ⚠️ **Open a NEW Admin CMD** (keep the kdmapper terminal open)
+> ⚠️ Open a **new** Admin CMD
 
 ```batch
 cd SARAB\output
 sarab.exe GTA5.exe ..\payload\YimMenu.dll
 ```
 
-Or use **interactive mode** (no arguments):
-```batch
-sarab.exe
-```
-```
-TARGET PROCESS > GTA5.exe
-DLL PATH > ..\payload\YimMenu.dll
-```
+Or interactive mode: just run `sarab.exe` and follow the prompts.
 
-**Success output:**
-```
-  ╔═══════════════════════════════════════╗
-  ║      SARAB — Kernel Manual Map        ║
-  ║         Made by Koldo | @Koldo1       ║
-  ╚═══════════════════════════════════════╝
-
-  [OK] Process found — PID 12345
-  [OK] DLL loaded — 11402240 bytes
-  [OK] Connected to kernel driver
-  [OK] Driver alive — response in 2ms
-
-  [==============================>] 100% Done
-
-  [OK] Injection complete!
-  [>]  Mapped at: 0x7FF612340000
-
-  ======== INJECTION SUCCESSFUL ========
-```
+**Look for:** `INJECTION SUCCESSFUL` + mapped base address → ✅ done
 
 ---
 
-### 5️⃣ Use YimMenu In-Game
+### ⑤ Open YimMenu
 
-1. Go back to GTA V
-2. Press **`INSERT`** to open the YimMenu overlay
-3. Navigate and enable features
-4. Press **`INSERT`** again to close
+Press **`INSERT`** in-game to toggle the menu overlay.
 
-> 🟢 **Works in GTA Online public sessions.** The included YimMenu DLL is specifically built for kernel injection and tested in public lobbies.
+> 🟢 **Works in GTA Online public sessions.** Tested and confirmed.
 
 ---
 
-### ⚡ Optional: Re-Spoof Without Rebuilding
-
-Want fresh signatures instantly? No compilation needed:
+### ⚡ Re-Spoof Without Rebuilding
 
 ```batch
-cd SARAB
 quick_spoof.bat
 ```
 
-This re-mutates the existing binaries with new PE signatures in seconds. New hash, same functionality.
+Instantly re-mutates binaries with new signatures — no recompilation needed.
 
 ---
 
-## 📋 Quick Reference Card
+## 📋 Quick Reference
 
 ```
- ╔══════════════════════════════════════════════════════════════════╗
- ║                                                                  ║
- ║   ███████╗ █████╗ ██████╗  █████╗ ██████╗   QUICK GUIDE         ║
- ║   ██╔════╝██╔══██╗██╔══██╗██╔══██╗██╔══██╗                      ║
- ║   ███████╗███████║██████╔╝███████║██████╔╝  by Koldo | @Koldo1  ║
- ║   ╚════██║██╔══██║██╔══██╗██╔══██║██╔══██╗                      ║
- ║   ███████║██║  ██║██║  ██║██║  ██║██████╔╝                      ║
- ║   ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝                      ║
- ║                                                                  ║
- ║  ⚠️  ALL STEPS REQUIRE RUN AS ADMINISTRATOR  ⚠️                  ║
- ║                                                                  ║
- ║  1. BUILD ──────────► build_release.bat                          ║
- ║  2. MAP DRIVER ─────► kdmapper.exe output\driver.sys             ║
- ║  3. LAUNCH GAME ────► Open GTA V → load into session             ║
- ║  4. INJECT ─────────► sarab.exe GTA5.exe ..\payload\YimMenu.dll  ║
- ║  5. OPEN MENU ──────► Press INSERT in-game                       ║
- ║                                                                  ║
- ║  RE-SPOOF ──────────► quick_spoof.bat  (no rebuild needed)       ║
- ║                                                                  ║
- ║  ⚠️  USE ONLY THE INCLUDED YimMenu.dll — NORMAL ONES DON'T WORK  ║
- ║                                                                  ║
- ╚══════════════════════════════════════════════════════════════════╝
+╔═══════════════════════════════════════════════════════════════════╗
+║                                                                   ║
+║   ░██████╗░█████╗░██████╗░░█████╗░██████╗░                       ║
+║   ██╔════╝██╔══██╗██╔══██╗██╔══██╗██╔══██╗   QUICK GUIDE         ║
+║   ╚█████╗░███████║██████╔╝███████║██████╦╝   by Koldo | @Koldo1  ║
+║   ░╚═══██╗██╔══██║██╔══██╗██╔══██║██╔══██╗                       ║
+║   ██████╔╝██║  ██║██║  ██║██║  ██║██████╦╝                       ║
+║   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝                       ║
+║                                                                   ║
+║   ⚠️  ALL STEPS REQUIRE RUN AS ADMINISTRATOR  ⚠️                   ║
+║                                                                   ║
+║   ①  BUILD ──────────►  build_release.bat                         ║
+║   ②  MAP DRIVER ─────►  kdmapper.exe output\driver.sys            ║
+║   ③  LAUNCH GAME ────►  Open GTA V → load into session            ║
+║   ④  INJECT ─────────►  sarab.exe GTA5.exe ..\payload\YimMenu.dll ║
+║   ⑤  OPEN MENU ──────►  Press INSERT in-game                      ║
+║                                                                   ║
+║   RE-SPOOF ──────────►  quick_spoof.bat                            ║
+║                                                                   ║
+║   ⚠️  USE ONLY THE INCLUDED YimMenu.dll                            ║
+║   ⚠️  NORMAL YimMenu DLL WILL NOT WORK                             ║
+║                                                                   ║
+╚═══════════════════════════════════════════════════════════════════╝
 ```
 
 ---
 
 ## 🎭 Signature Randomization Engine
 
-Every build produces a **completely unique binary**. Anti-cheat cannot signature-match because there is no static signature.
+### Layer 1 — Source Mutation (Before Compilation)
 
-### 🔹 Layer 1 — Source-Level Mutation (Pre-Compilation)
+Mutates identifiers in `protocol.h` before `cl.exe` compiles, making the actual machine code different:
 
-Runs **before** `cl.exe` — mutates identifiers in `protocol.h` so the compiled machine code itself is fundamentally different:
+| What Gets Randomized | Example |
+|:---|:---|
+| Shared memory name (KM) | `\\BaseNamedObjects\\Global\\SarabShm` → `\\BaseNamedObjects\\Global\\xKpLmNqR` |
+| Shared memory name (UM) | `Global\\SarabShm` → `Global\\xKpLmNqR` |
+| Magic handshake | `0x53415242` → `0xA7F3B2C1` |
+| Pool tag | `'barS'` → `'qZxW'` |
 
-| Identifier | Original Value | Example After Randomization |
-|:---|:---|:---|
-| Shared memory name (kernel) | `\\BaseNamedObjects\\Global\\SarabShm` | `\\BaseNamedObjects\\Global\\xKpLmNqR` |
-| Shared memory name (usermode) | `Global\\SarabShm` | `Global\\xKpLmNqR` |
-| Magic handshake value | `0x53415242` | `0xA7F3B2C1` |
-| Kernel pool tag | `'barS'` | `'qZxW'` |
+### Layer 2 — Binary PE Mutation (After Compilation)
 
-### 🔹 Layer 2 — Binary PE Mutation (Post-Compilation)
+10 mutations applied to the compiled `.sys` and `.exe`:
 
-10 mutations applied to the compiled `.sys` and `.exe` files:
-
-| # | Mutation | Effect |
+| # | Mutation | What It Does |
 |:---:|:---|:---|
-| 1 | **TimeDateStamp** | Randomizes PE compile timestamp |
-| 2 | **Checksum** | Randomizes PE checksum field |
-| 3 | **Rich Header** | Destroys MSVC build fingerprint — compiler versions, object counts, all randomized |
-| 4 | **Section Names** | `.text`→`.code`, `.rdata`→`.cnst`, `.data`→`.heap`, etc. |
-| 5 | **Debug Directory** | Wipes PDB paths, CodeView GUIDs, and all debug metadata |
-| 6 | **Linker Version** | Fakes the MSVC linker version number |
-| 7 | **OS Version** | Randomizes minimum OS version in PE header |
-| 8 | **Polymorphic Junk** | Fills code caves + DOS stub padding with cryptographic random bytes |
-| 9 | **Build GUID** | Stamps a unique 128-bit watermark per build |
-| 10 | **DOS Stub** | Randomizes unused bytes in the DOS header area |
+| 1 | **TimeDateStamp** | Randomizes compile timestamp |
+| 2 | **Checksum** | Randomizes PE checksum |
+| 3 | **Rich Header** | Destroys MSVC fingerprint (64-96 random bytes) |
+| 4 | **Section Names** | `.text`→`.code`, `.rdata`→`.cnst`, etc. |
+| 5 | **Debug Directory** | Wipes all PDB paths and CodeView GUIDs |
+| 6 | **Linker Version** | Fakes MSVC linker version |
+| 7 | **OS Version** | Randomizes minimum OS version |
+| 8 | **Polymorphic Junk** | Fills code caves with random bytes (1300+ bytes) |
+| 9 | **Build GUID** | Stamps unique 128-bit watermark |
+| 10 | **DOS Stub** | Randomizes unused DOS header bytes |
 
-### 🔹 Proof — SHA256 Changes Every Time
+### Proof — Every Spoof = Different Hash
 
 ```
-Spoof 1:  CFD54215EF00E743182950F050182E95D11056487E7B0C2F4B00294E7800777A
-Spoof 2:  2BA928715B4795075D802702B730F7476F4B425295B4C0D4B11B7E1906923C56
-Spoof 3:  0F53D2E9CE5D91283A2AB63695F87FB002B391EB1B0EE13D8061223CC5FFEE0A
+Run 1:  CFD54215EF00E743182950F050182E95D11056487E7B0C2F4B00294E7800777A
+Run 2:  2BA928715B4795075D802702B730F7476F4B425295B4C0D4B11B7E1906923C56
+Run 3:  0F53D2E9CE5D91283A2AB63695F87FB002B391EB1B0EE13D8061223CC5FFEE0A
 ```
-
-Every single spoof = completely different hash. Verified and tested.
 
 ---
 
 ## 🏗️ Architecture
 
 ```
-                    ┌─────────────────────────────────────────────────────┐
-                    │              SHARED MEMORY SECTION (16MB)           │
-                    │  ┌──────────────────────────────────────────────┐   │
-                    │  │  Magic | CmdState | OpType | PID | DllSize  │   │
-                    │  │  Result | Progress | MappedBase | StatusMsg  │   │
-                    │  │  DllData[0 ... 16MB]                        │   │
-                    │  └──────────────────────────────────────────────┘   │
-                    └─────────────────┬───────────────────┬───────────────┘
-                                      │                   │
-              ┌───────────────────────┘                   └────────────────────────┐
-              │                                                                    │
-              ▼                                                                    ▼
-┌──────────────────────────┐                                 ┌──────────────────────────────┐
-│    sarab.exe (Ring 3)     │                                 │     driver.sys (Ring 0)       │
-│    ─────────────────────  │                                 │     ──────────────────────    │
-│                           │                                 │                                │
-│  ► Find target process    │     Write DLL bytes + PID       │  ► Parse PE headers            │
-│  ► Read DLL from disk     │  ──────────────────────────►    │  ► Allocate kernel memory      │
-│  ► Copy to shared memory  │                                 │  ► Map PE sections             │
-│  ► Wait for result        │     Return status + base addr   │  ► Apply relocations           │
-│  ► Display Fusion UI      │  ◄──────────────────────────    │  ► Resolve imports (ntoskrnl)  │
-│  ► Show progress bar      │                                 │  ► Set page protections        │
-│                           │                                 │  ► Execute DllMain             │
-│  API calls: OpenFileMap-  │                                 │  ► Report result + base addr   │
-│  pingA, MapViewOfFile     │                                 │                                │
-│  (100% normal Windows)    │                                 │  Zero usermode artifacts       │
-└──────────────────────────┘                                 └──────────────────────────────┘
+  ┌─────────────────────┐                              ┌──────────────────────────┐
+  │                     │    Shared Memory (16MB)       │                          │
+  │   sarab.exe         │ ════════════════════════════► │   driver.sys             │
+  │   Ring 3 / User     │   DLL bytes + target PID      │   Ring 0 / Kernel        │
+  │                     │ ◄════════════════════════════ │                          │
+  │  • Find process     │   Status + Progress + Base    │  • Parse PE headers      │
+  │  • Read DLL         │                              │  • Allocate memory       │
+  │  • Write to SHM     │                              │  • Map sections          │
+  │  • Display UI       │                              │  • Fix relocations       │
+  │                     │                              │  • Resolve imports       │
+  │  APIs used:         │                              │  • Set protections       │
+  │  OpenFileMappingA   │                              │  • Call DllMain          │
+  │  MapViewOfFile      │                              │  • Return result         │
+  │  (normal Windows)   │                              │                          │
+  └─────────────────────┘                              └──────────────────────────┘
 ```
 
-### Why This Design Is Invisible
+### Why Anti-Cheat Can't See It
 
-| Anti-Cheat Check | Result |
+| Check | Result |
 |:---|:---|
-| Scan for `VirtualAllocEx` calls | ❌ Not called — memory allocated from kernel |
-| Scan for `WriteProcessMemory` calls | ❌ Not called — sections mapped from kernel |
-| Scan for `CreateRemoteThread` / `NtCreateThreadEx` | ❌ Not called — entry point invoked from kernel |
-| Scan for IOCTL traffic | ❌ None — no device objects, no `DeviceIoControl` |
-| Scan for suspicious handles | ❌ Only `OpenFileMappingA` — a completely normal Win32 API |
-| Scan for loaded module list entries | ❌ Manual map = no module list entry |
-| Hash-match binary signatures | ❌ Every build has a unique hash |
+| `VirtualAllocEx` calls | ❌ Not called |
+| `WriteProcessMemory` calls | ❌ Not called |
+| `CreateRemoteThread` calls | ❌ Not called |
+| IOCTL / DeviceIoControl | ❌ None |
+| Suspicious handles | ❌ Only `OpenFileMappingA` (normal API) |
+| Module list entries | ❌ Manual map = no entry |
+| Binary hash matching | ❌ Unique hash every build |
 
 ---
 
 ## 🔧 Troubleshooting
 
 <details>
-<summary><b>🔨 Build Errors</b> (click to expand)</summary>
+<summary><b>🔨 Build Errors</b></summary>
 
 | Error | Fix |
 |:---|:---|
-| `Visual Studio 2022 not found!` | Install VS2022 with **"Desktop development with C++"** workload |
-| `Windows Driver Kit not found!` | Install [WDK 10](https://learn.microsoft.com/en-us/windows-hardware/drivers/download-the-wdk) matching your Windows SDK |
-| `pwsh not found` | Install PowerShell 7: `winget install Microsoft.PowerShell` |
-| `'cl.exe' is not recognized` | The build script auto-loads vcvars64. If it fails, run from **"x64 Native Tools Command Prompt for VS 2022"** |
-| `ExAllocatePoolWithTag deprecated` | ⚠️ **Warning only** — build succeeds normally |
-| `macro name '_KERNEL_MODE' is reserved` | ⚠️ **Warning only** — build succeeds normally |
+| `Visual Studio 2022 not found!` | Install VS2022 + **"Desktop development with C++"** workload |
+| `Windows Driver Kit not found!` | Install [WDK 10](https://learn.microsoft.com/en-us/windows-hardware/drivers/download-the-wdk) |
+| `pwsh not found` | `winget install Microsoft.PowerShell` |
+| `'cl.exe' not recognized` | Build script auto-loads vcvars. Try **"x64 Native Tools Command Prompt"** |
+| `ExAllocatePoolWithTag deprecated` | ⚠️ Warning only — build succeeds |
+| `_KERNEL_MODE reserved` | ⚠️ Warning only — build succeeds |
 
 </details>
 
 <details>
-<summary><b>🔌 Driver Loading Errors (kdmapper)</b> (click to expand)</summary>
+<summary><b>🔌 Driver Loading (kdmapper)</b></summary>
 
 | Error | Fix |
 |:---|:---|
-| `Access denied` | **Run CMD as Administrator** — this is the #1 issue |
-| `Device \\.\Nal not found` | kdmapper can't load the Intel driver — disable AV, try different kdmapper version |
-| `Failed to load vulnerable driver` | Antivirus blocking `iqvw64e.sys` — add exclusion or temporarily disable AV |
-| `Driver already loaded` | **Reboot PC** — you can't re-map without a fresh boot |
-| `Secure Boot violation` | Disable Secure Boot in BIOS/UEFI |
-| `Blue screen (BSOD)` | WDK version mismatch with Windows — also check for conflicting drivers |
-| `Image base allocation failed` | Reboot and try again — kernel address space conflict |
+| `Access denied` | **Run as Administrator** |
+| `Device \\.\Nal not found` | Disable AV, try another kdmapper version |
+| `Failed to load vulnerable driver` | AV blocking `iqvw64e.sys` — add exclusion |
+| `Driver already loaded` | **Reboot** — can't re-map without reboot |
+| `Secure Boot violation` | Disable Secure Boot in BIOS |
+| `BSOD` | WDK version mismatch or driver conflict |
 
 </details>
 
 <details>
-<summary><b>💉 Injection Errors (sarab.exe)</b> (click to expand)</summary>
+<summary><b>💉 Injection (sarab.exe)</b></summary>
 
 | Error | Fix |
 |:---|:---|
-| `Cannot connect to kernel driver` | Driver isn't loaded — run kdmapper first |
-| `Shared memory not found` | Driver crashed or wasn't mapped — **reboot** + re-map |
-| `Driver not responding (dead)` | Driver loaded but not functioning — **reboot** + re-map |
-| `Process not found` | GTA V must be **running and fully loaded** before injecting |
-| `Invalid PE file` | DLL is corrupted — make sure you're using the included `payload/YimMenu.dll` |
-| `Injection failed — error 4` | Memory allocation failed — restart GTA V and try again |
-| `Injection failed — error 6` | Import resolution failed — DLL may be incompatible with game version |
-| `Injection timed out` | Driver is stuck — **reboot**, re-map, try again |
+| `Cannot connect to driver` | Run kdmapper first |
+| `Shared memory not found` | Driver crashed — **reboot** + re-map |
+| `Process not found` | GTA V must be running and fully loaded |
+| `Invalid PE file` | Use only the **included** `payload/YimMenu.dll` |
+| `Injection failed — error 4` | Restart GTA V |
+| `Injection failed — error 6` | DLL incompatible with game version |
+| `Injection timed out` | **Reboot** + re-map + try again |
 
 </details>
 
 <details>
-<summary><b>💡 Pro Tips</b> (click to expand)</summary>
+<summary><b>💡 Pro Tips</b></summary>
 
 | Tip | Details |
 |:---|:---|
-| 🔴 **Always run as admin** | Building, mapping, injecting — everything needs elevation |
-| 🔄 **Rebuild before each session** | `build_release.bat` = fresh unique binaries |
-| ⚡ **Quick re-spoof** | `quick_spoof.bat` = new signatures in seconds, no rebuild |
-| 🛡️ **Disable antivirus temporarily** | Defender may flag kdmapper and driver.sys |
-| 🔁 **Reboot between sessions** | Clean kernel state — never re-map without rebooting |
-| 📁 **Never share your compiled binaries** | Each build is unique to YOU — sharing defeats the signature randomization |
-| 🎮 **Game first, then inject** | Launch GTA V → fully loaded → then run sarab.exe |
+| 🔴 **Always admin** | Everything needs elevation |
+| 🔄 **Rebuild each session** | Fresh unique binaries |
+| ⚡ **Quick re-spoof** | `quick_spoof.bat` — seconds, no rebuild |
+| 🛡️ **Disable AV temporarily** | Defender may flag driver + kdmapper |
+| 🔁 **Reboot between sessions** | Clean kernel state |
+| 📁 **Never share binaries** | Each build is unique to YOU |
+| ⚠️ **Only included YimMenu** | Normal DLL won't work |
 | ⏰ **Order matters** | Build → Map → Game → Inject → INSERT |
-| ⚠️ **Only use included YimMenu** | Normal/nightly YimMenu DLL will NOT work with kernel injection |
 
 </details>
 
@@ -491,10 +444,14 @@ Every single spoof = completely different hash. Verified and tested.
 <table>
 <tr>
 <td align="center">
-<h3>👤 Koldo</h3>
-<b>Creator & Developer</b><br>
-Discord: <b>@Koldo1</b><br>
-<sub>Architecture • Kernel Driver • Usermode Injector • Signature Engine • UI</sub>
+  
+### 👤 Koldo
+
+**Creator & Developer**<br>
+Discord: **@Koldo1**
+
+<sub>Architecture • Kernel Driver • Usermode Injector • Signature Engine • UI Design</sub>
+
 </td>
 </tr>
 </table>
@@ -503,12 +460,13 @@ Discord: <b>@Koldo1</b><br>
 
 ## ⚖️ Disclaimer
 
-This project is provided for **educational and research purposes only**. The author is not responsible for any misuse. Use at your own risk and in compliance with applicable laws and terms of service.
+This project is for **educational and research purposes only**. The author is not responsible for any misuse. Use at your own risk and in compliance with applicable laws and terms of service.
 
 ---
 
 <p align="center">
-  <b>SARAB</b> — السراب — <i>The Mirage</i><br>
-  <sub>You can't detect what doesn't exist.</sub><br><br>
-  Made with 💜 by <b>Koldo</b>
+  <b>S A R A B</b><br>
+  <sub><i>The Mirage — You can't detect what doesn't exist</i></sub><br><br>
+  <img src="https://img.shields.io/badge/Made%20with-💜-7b2ff7?style=flat&labelColor=0d1117" />
+  <img src="https://img.shields.io/badge/by-Koldo-00ff41?style=flat&labelColor=0d1117" />
 </p>
