@@ -1,0 +1,18 @@
+# Build outputs — each user compiles their own unique binaries
+output/*.sys
+output/*.exe
+output/*.obj
+output/*.pdb
+output/*.bak
+
+# Compiler intermediates
+*.obj
+*.pdb
+*.iobj
+*.ipdb
+*.exp
+*.lib
+*.ilk
+
+# Source backup (created by randomizer)
+*.original
